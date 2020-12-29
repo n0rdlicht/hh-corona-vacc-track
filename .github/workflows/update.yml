@@ -1,0 +1,17 @@
+name: runner
+
+on:
+  schedule:
+  - cron: "10 * * * *"
+    
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: execute
+        run: make update
